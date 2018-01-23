@@ -3,9 +3,26 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/assets/style.css" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
     <title></title>
   </head>
   <body>
     <h1>Hello world!</h1>
+    <form action="/person" method="post">
+      <input type="text" name="firstName" value="" placeholder="First Name">
+      <input type="text" name="lastName" value="" placeholder="Last Name">
+      <input type="submit" name="" value="Submit">
+    </form>
+
+    <script type="text/javascript">
+      $.ajax({
+        type: 'POST',
+        url: '/personjson',
+        data: JSON.stringify({ firstName: 'John', lastName: 'Doe' }),
+        dataType: 'json',
+        contentType: 'application/json'
+      })
+    </script>
   </body>
 </html>
